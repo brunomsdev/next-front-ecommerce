@@ -48,25 +48,23 @@ export default function Product() {
     fetchProduct();
   }, [id]);
 
-  if(!product){
-      return (
-        <PageWrapper.Root>
-          <PageWrapper.Header />
-          <PageWrapper.Content>
-            <div className="flex flex-col items-center justify-center">
-              <h1 className="text-2xl font-bold mb-4">
-                Produto não encontrado
-              </h1>
-              <Link href="/">
-                <CustomButton className="h-[45px] px-4">
-                  Voltar para a home
-                </CustomButton>
-              </Link>
-            </div>
-          </PageWrapper.Content>
-        </PageWrapper.Root>
-      );
-    }
+  if (!product) {
+    return (
+      <PageWrapper.Root>
+        <PageWrapper.Header />
+        <PageWrapper.Content>
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-2xl font-bold mb-4">Produto não encontrado</h1>
+            <Link href="/">
+              <CustomButton className="h-[45px] px-4">
+                Voltar para a home
+              </CustomButton>
+            </Link>
+          </div>
+        </PageWrapper.Content>
+      </PageWrapper.Root>
+    );
+  }
 
   return (
     <PageWrapper.Root>
