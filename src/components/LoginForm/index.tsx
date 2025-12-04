@@ -8,6 +8,7 @@ import CustomInput from "../CustomInput";
 import customToast from "@/helpers/customToast";
 import requestApi from "@/helpers/requestApi";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -26,24 +27,24 @@ export default function LoginForm() {
     }
 
     try {
-      const response = await requestApi({
-        url: "/login",
-        method: "POST",
-        data: {
-          email,
-          password,
-        },
-      });
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false
+      })
 
-      //set kicak storage
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      if(result?.error){
+        return customToast.error({
+          message: "Erro ao fazer login. Verifique suas credenciais."
+        })
+      }
 
       customToast.success({
-        message: "Login realizado com sucesso",
-      });
+        message: "Login realizado com sucesso"
+      })
 
-      router.push("/");
+      router.push("/")
+
     } catch (error: any) {
       console.error(error);
       customToast.error({

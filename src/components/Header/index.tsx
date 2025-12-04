@@ -16,12 +16,19 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import Link from "next/link";
-import useSession from "@/hooks/use-session";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Header() {
   const router = useRouter();
 
-  const { session, handleSignOut } = useSession();
+  const { data: session } = useSession();
+
+  async function handleSignOut(){
+    await signOut({
+      redirect: true,
+      callbackUrl: "/login"
+    })
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-[#111418/95] backdrop-blur-sm w-full border-b">
