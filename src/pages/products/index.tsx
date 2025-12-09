@@ -11,12 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { withAuth } from "@/lib/withAuth";
 import { IoSearch } from "react-icons/io5";
 
 export default function Products() {
   return (
-    <div className="">
-      <PageWrapper.Root withAuth={true}>
+    
+      <PageWrapper.Root>
         <PageWrapper.Header />
         <PageWrapper.Content
           title="Todos os products"
@@ -49,6 +50,7 @@ export default function Products() {
           </div>
         </PageWrapper.Content>
       </PageWrapper.Root>
-    </div>
   );
 }
+
+export const getServerSideProps = withAuth()
