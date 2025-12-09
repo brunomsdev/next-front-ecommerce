@@ -16,18 +16,15 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Header() {
   const router = useRouter();
 
-  const { data: session } = useSession();
+  const { user, signOut, isAuthenticated } = useAuth();
 
   async function handleSignOut(){
-    await signOut({
-      redirect: true,
-      callbackUrl: "/login"
-    })
+    signOut()
   }
 
   return (
@@ -50,7 +47,7 @@ export default function Header() {
           />
         </div>
         <div className="flex items-center space-x-4 w-[33%] justify-end pr-4">
-          {session ? (
+          {isAuthenticated ? (
             <>
               <CustomButton
                 variant="ghost"
@@ -70,9 +67,9 @@ export default function Header() {
 
               <DropdownMenu modal={false}>
                 <DropdownMenuTrigger asChild>
-                  {session?.user?.image ? (
+                  {user?.image ? (
                     <Image
-                      src={session?.user?.image}
+                      src={user?.image}
                       alt="User Image"
                       width={40}
                       height={40}
@@ -80,7 +77,7 @@ export default function Header() {
                     />
                   ) : (
                     <button className="w-10 h-10 rounded-full bg-gradient-to-r from-[#5593f7] to-[#1d47d7] flex items-center justify-center text-white font-semibold">
-                      {session?.user?.name?.charAt(0).toUpperCase() || "U"}
+                      {user?.name?.charAt(0).toUpperCase() || "U"}
                     </button>
                   )}
                 </DropdownMenuTrigger>
@@ -97,15 +94,15 @@ export default function Header() {
                         from-[#5593f7] to-[#1d47d7] flex items-center justify-center
                         text-white font-semibold"
                       >
-                        {session?.user?.name?.charAt(0)?.toUpperCase() || "U"}
+                        {user?.name?.charAt(0)?.toUpperCase() || "U"}
                       </div>
 
                       <div className="flex-1 min-w-0">
                         <p className="text-white font-medium text-sm">
-                          {session?.user?.name}
+                          {user?.name}
                         </p>
                         <p className="text-gray-400 text-xs">
-                          {session?.user?.email}
+                          {user?.email}
                         </p>
                       </div>
                     </div>
