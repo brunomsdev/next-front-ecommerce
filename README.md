@@ -1,7 +1,10 @@
 # E-Commerce – Next.js & React
 
+
 Aplicação de e-commerce desenvolvida com Next.js e React, planejada para ser escalável, bem organizada e de fácil manutenção.
 O projeto aplica Composition Patterns e Princípios SOLID, além de preparar a base para uma API própria.
+
+
 
 
 
