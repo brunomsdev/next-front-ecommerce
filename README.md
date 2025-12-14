@@ -29,15 +29,16 @@ This project was created for learning purposes, focusing on:
 - API consumption
 - Code organization and scalability
 
+## Testing (Planned)
+Automated tests will be added in future classes, focusing on:
+- Component testing
+- Basic integration tests
+- Application behavior validation
+
 ## Running the project locally
 
 ```bash
 npm install
 npm run dev
 
-## Testing (Planned)
-Automated tests will be added in future classes, focusing on:
-- Component testing
-- Basic integration tests
-- Application behavior validation
 
