@@ -1,4 +1,4 @@
-# 🛍️ E-Commerce – Next.js & React
+# E-Commerce – Next.js & React
 
 Aplicação de e-commerce desenvolvida com Next.js e React, planejada para ser escalável, bem organizada e de fácil manutenção.
 O projeto aplica Composition Patterns e Princípios SOLID, além de preparar a base para uma API própria.
@@ -10,7 +10,7 @@ O projeto aplica Composition Patterns e Princípios SOLID, além de preparar a b
 
 
 
-# ✨ Funcionalidades
+# Funcionalidades
 
 Autenticação
 
@@ -49,7 +49,7 @@ Facilita desenvolvimento e testes antes da API real
 
 ---
 
-# 🏗️ Estrutura do Projeto
+# Estrutura do Projeto
 
 src/
   components/
@@ -99,7 +99,7 @@ src/
 
 ---
 
-# 🔑 Destaques de Engenharia
+# Destaques de Engenharia
 
 Composition Patterns
 
