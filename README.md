@@ -2,7 +2,7 @@
 
 Frontend application for an e-commerce platform, built with **Next.js** and **TypeScript**.
 
-This project is being developed as part of the **Fly College Fullstack Development Course** and is implemented incrementally during classes.
+This project is part of a fullstack development learning process and evolves incrementally.
 
 ## Project Status
 **In development**  
